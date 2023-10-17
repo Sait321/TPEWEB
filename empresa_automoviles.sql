@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-09-2023 a las 19:12:26
+-- Tiempo de generación: 17-10-2023 a las 23:44:30
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `marca` (
   `id` int(2) NOT NULL,
   `Empresa` varchar(20) DEFAULT NULL,
+  `nombre` int(10) NOT NULL,
   `Origen` varchar(20) NOT NULL,
   `id_modelo` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -42,10 +43,33 @@ CREATE TABLE `marca` (
 
 CREATE TABLE `modelos` (
   `id` int(2) NOT NULL,
-  `Nombre` varchar(20) NOT NULL,
+  `nombre` varchar(20) NOT NULL,
   `Fecha_fundacion` int(4) NOT NULL,
-  `tipo` varchar(20) NOT NULL
+  `tipo` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(20) NOT NULL,
+  `email` varchar(20) NOT NULL,
+  `clave` varchar(10) NOT NULL,
+  `id_marca` int(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `nombre`, `email`, `clave`, `id_marca`) VALUES
+(0, '', 'tpweb2@gmail.com', '$2y$10$Jl3', 0),
+(1, '', 'tpweb2@gmail.com', '$2y$10$gQU', 0),
+(87, 'Marcos', 'tpweb2@gmail.com', '1234', 0);
 
 --
 -- Índices para tablas volcadas
@@ -63,6 +87,13 @@ ALTER TABLE `marca`
 --
 ALTER TABLE `modelos`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_marca` (`id_marca`);
 
 --
 -- Restricciones para tablas volcadas
