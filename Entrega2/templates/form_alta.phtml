@@ -1,0 +1,45 @@
+<!-- formulario de alta de tarea -->
+
+<div class="login-box">
+
+<form action="inicio.php" method="POST" class="login-cont">
+
+
+    <div class="row">
+        <div class="col-9">
+            <div class="form-group">
+                <label>Modelo del vehiculo</label>
+                <input required name="nombre" type="text" class="form-control" value="">
+                <label>Nombre</label>
+                <input required name="nombre" type="text" class="form-control" value="">
+                <label>Origen</label>
+                <input required name ="apellido" type="text" class="form-control" value="">
+
+            </div>
+        </div>
+
+        <div class="col-3">
+            <div class="form-group">
+                <label>Marca</label>
+                <select required name="priority" class="form-control">
+                    <option value="1">Audi</option>
+                    <option value="2">Toyota</option>
+                    <option value="3">Ford</option>
+                    <option value="4">Volkswagen</option>
+                    <option value="5">Fiat</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Descripcion</label>
+        <textarea name="description" class="form-control" rows="3"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Guardar</button>
+
+</form>
+</div>
+
+<?php include 'templates/footer.phtml' ?>
